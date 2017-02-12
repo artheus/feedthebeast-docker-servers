@@ -7,7 +7,7 @@ WORKDIR /srv
 
 RUN unzip server.zip && \
     rm server.zip && \
-    echo "eula=TRUE" >> eula.txt && \
+    echo "eula=TRUE" > eula.txt && \
     /bin/bash FTBInstall.sh && \
     chmod +x ServerStart.sh
 
