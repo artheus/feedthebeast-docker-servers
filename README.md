@@ -5,6 +5,9 @@ So, you want to run your own FTB Minecraft Server? Use these Docker images to do
 To use this, you will need some knowledge on how to use Docker.
 Please read about docker here: https://docs.docker.com/learn/
 
+Pull the docker images from
+https://hub.docker.com/u/feedthebeast/
+
 # Milestones
 - Add McMyAdmin to increase control over the server
 - Add an app for rendering world maps
