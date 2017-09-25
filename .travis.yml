@@ -1,2 +1,8 @@
 install: npm install
 script: node ./build build
+sudo: required
+language: node_js
+node_js:
+  - "8"
+services:
+  - docker
