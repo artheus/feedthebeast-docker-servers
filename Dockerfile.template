@@ -6,7 +6,7 @@ ARG ZIP_NAME={{ name }}.zip
 WORKDIR /home/minecraft/mcmyadmin/Minecraft
 COPY gen_server_properties.sh ./
 
-RUN	wget -O $ZIP_NAME $DOWNLOAD_URL && \
+RUN	wget -nv -O $ZIP_NAME $DOWNLOAD_URL && \
 	unzip $ZIP_NAME && \
 	rm $ZIP_NAME
 
