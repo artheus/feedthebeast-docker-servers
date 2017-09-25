@@ -1,4 +1,6 @@
 install: npm install
+before_script:
+  - docker build --rm --tag ftbbase ./base
 script: node ./build build
 sudo: required
 language: node_js
