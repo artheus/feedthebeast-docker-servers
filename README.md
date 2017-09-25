@@ -1,4 +1,4 @@
-# Dockerized FTB Minecraft servers
+# Dockerized FTB Minecraft servers [![Build Status](https://travis-ci.org/artheus/feedthebeast-docker-servers.svg?branch=master)](https://travis-ci.org/artheus/feedthebeast-docker-servers)
 
 So, you want to run your own FTB Minecraft Server? Use these Docker images to do so!
 
