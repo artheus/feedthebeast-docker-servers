@@ -8,7 +8,7 @@ jarlist=(FTB*.jar)
 mv "${jarlist[0]}" ftbserver.jar
 
 if [ -f FTBInstall.sh ]; then
-	./FTBInstall.sh;
+	/bin/bash FTBInstall.sh
 fi
 
 echo "eula=true" > eula.txt
