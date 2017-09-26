@@ -10,7 +10,7 @@ RUN	wget -nv -O $ZIP_NAME $DOWNLOAD_URL && \
 	unzip $ZIP_NAME && \
 	rm $ZIP_NAME
 
-RUN mv FTBserver*.jar ftbserver.jar && \
+RUN mv FTB*.jar ftbserver.jar && \
 	/bin/sh ./FTBInstall.sh && \
 	echo "eula=true" > eula.txt
 
