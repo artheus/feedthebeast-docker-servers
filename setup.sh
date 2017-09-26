@@ -15,7 +15,7 @@ fi
 echo "eula=true" > eula.txt
 
 if [ ! -f server.properties ] ; then
-	cat <<- EOF > Minecraft/server.properties
+	cat <<- EOF > server.properties
 	# Minecraft server properties
 	# ---
 	max-tick-time=${MAX_TICK_TIME:-60000}

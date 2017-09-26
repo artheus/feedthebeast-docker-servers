@@ -37,11 +37,3 @@ buildArgs.addArgument(
 	});
 
 var args = parser.parseArgs();
-//console.log(args);
-/*
-try {
-  var doc = yaml.safeLoad(fs.readFileSync('packs.yml', 'utf8'));
-  console.log(doc['direwolf20'])
-} catch (e) {
-  console.log(e);
-}*/
