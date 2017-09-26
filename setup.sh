@@ -4,8 +4,8 @@ wget -nv -O $ZIP_NAME $DOWNLOAD_URL && \
 unzip -q $ZIP_NAME && \
 rm $ZIP_NAME
 
-JARFILES=( "FTB*.jar" )
-mv ${JARFILES[0]} ftbserver.jar
+jarlist=(FTB*.jar)
+mv "${jarlist[0]}" ftbserver.jar
 
 if [ -f FTBInstall.sh ]; then
 	./FTBInstall.sh;
