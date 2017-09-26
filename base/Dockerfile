@@ -1,18 +1,18 @@
 FROM ubuntu:16.04
 
-RUN apt-get update && \
-	apt-get install -y wget unzip openjdk-8-jre
+RUN apt-get -q update && \
+	apt-get -q install -y wget unzip openjdk-8-jre
 
 RUN useradd minecraft -m -s /bin/bash
 
 WORKDIR /usr/local
-RUN wget http://mcmyadmin.com/Downloads/etc.zip && \
+RUN wget -nv http://mcmyadmin.com/Downloads/etc.zip && \
 	unzip etc.zip && \
 	rm etc.zip
 
 COPY McMyAdmin.conf /home/minecraft/mcmyadmin/
 WORKDIR /home/minecraft/mcmyadmin
-RUN wget http://mcmyadmin.com/Downloads/MCMA2_glibc26_2.zip && \
+RUN wget -nv http://mcmyadmin.com/Downloads/MCMA2_glibc26_2.zip && \
 	unzip MCMA2_glibc26_2.zip && \
 	rm MCMA2_glibc26_2.zip && \
 	mkdir Minecraft && \
