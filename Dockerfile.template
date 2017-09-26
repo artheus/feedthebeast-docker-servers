@@ -1,4 +1,4 @@
-FROM ftbbase
+FROM feedthebeast/ftbbase
 
 ARG DOWNLOAD_URL={{ download_url }}
 ARG ZIP_NAME={{ name }}.zip

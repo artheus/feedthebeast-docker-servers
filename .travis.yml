@@ -36,8 +36,6 @@ env:
     - MODPACK=17testpack
     - MODPACK=slowstream
 install: npm install
-before_script:
-  - docker build --rm --tag ftbbase ./base
 script:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
   - node ./build build $MODPACK
