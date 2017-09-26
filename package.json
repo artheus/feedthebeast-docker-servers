@@ -1,6 +1,6 @@
 {
   "name": "feedthebeast-docker-servers",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Builder scripts for FTB Server docker containers",
   "main": "build",
   "scripts": {

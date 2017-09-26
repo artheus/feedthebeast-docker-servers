@@ -9,10 +9,10 @@ Pull the docker images from
 https://hub.docker.com/u/feedthebeast/
 
 # Milestones
-- Add McMyAdmin to increase control over the server
+- ~~Add McMyAdmin to increase control over the server~~
 - Add an app for rendering world maps
-- Include all servers from the FTB ModPack list
-- Automatic builds of the docker images, pushing directly to Docker hub
+- ~~Include all servers from the FTB ModPack list~~
+- ~~Automatic builds of the docker images, pushing directly to Docker hub~~
 
 # Usage
 
