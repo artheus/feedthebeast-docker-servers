@@ -4,7 +4,7 @@ ARG DOWNLOAD_URL={{ download_url }}
 ARG ZIP_NAME={{ name }}.zip
 
 COPY setup.sh ./
-RUN ./setup.sh && \
+RUN /bin/bash setup.sh && \
     rm setup.sh
 
 WORKDIR /home/minecraft/mcmyadmin
