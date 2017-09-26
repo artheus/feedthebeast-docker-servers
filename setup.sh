@@ -1,7 +1,20 @@
 #!/bin/bash
 
-if [ ! -f server.properties ] ; then
-	cat <<- EOF > server.properties
+wget -nv -O $ZIP_NAME $DOWNLOAD_URL && \
+unzip -q $ZIP_NAME && \
+rm $ZIP_NAME
+
+JARFILES=( "FTB*.jar" )
+mv ${JARFILES[0]} ftbserver.jar
+
+if [ -f FTBInstall.sh ]; then
+	./FTBInstall.sh;
+fi
+
+echo "eula=true" > eula.txt
+
+if [ ! -f Minecraft/server.properties ] ; then
+	cat <<- EOF > Minecraft/server.properties
 	# Minecraft server properties
 	# ---
 	max-tick-time=${MAX_TICK_TIME:-60000}
