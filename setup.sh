@@ -1,5 +1,6 @@
-#!/bin/bash
+#!/bin/bash -e
 
+cd Minecraft
 wget -nv -O $ZIP_NAME $DOWNLOAD_URL && \
 unzip -q $ZIP_NAME && \
 rm $ZIP_NAME
@@ -13,8 +14,8 @@ fi
 
 echo "eula=true" > eula.txt
 
-if [ ! -f Minecraft/server.properties ] ; then
-	cat <<- EOF > Minecraft/server.properties
+if [ ! -f server.properties ] ; then
+	cat <<- EOF > server.properties
 	# Minecraft server properties
 	# ---
 	max-tick-time=${MAX_TICK_TIME:-60000}
