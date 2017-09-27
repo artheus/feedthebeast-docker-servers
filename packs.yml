@@ -13,9 +13,12 @@ beyond:
 
 infinity:
   - mc_version: 1.7.10
+    pack_version: 3.0.2
+    download_url: https://www.feed-the-beast.com/projects/ftb-infinity-evolved/files/2484486/download
+    latest: true
+  - mc_version: 1.7.10
     pack_version: 3.0.1
     download_url: https://www.feed-the-beast.com/projects/ftb-infinity-evolved/files/2459701/download
-    latest: true
 
 direwolf20:
   - mc_version: 1.10.2

@@ -12,6 +12,10 @@ if [ -f FTBInstall.sh ]; then
 	/bin/bash FTBInstall.sh
 fi
 
+if [ ! -z "${DYNMAP_URL}" ]; then
+	wget -O mods/dynmap.jar $DYNMAP_URL
+fi
+
 echo "eula=true" > eula.txt
 
 if [ ! -f server.properties ] ; then
