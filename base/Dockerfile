@@ -21,6 +21,7 @@ RUN wget -nv http://mcmyadmin.com/Downloads/MCMA2_glibc26_2.zip && \
 
 RUN chown -R minecraft:minecraft /home/minecraft
 
+EXPORT 8123
 EXPOSE 8080
 EXPOSE 25565
 
