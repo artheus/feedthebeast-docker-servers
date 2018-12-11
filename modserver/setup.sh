@@ -1,19 +1,12 @@
-#!/bin/bash -e
-
-cd Minecraft
-wget -nv -O $ZIP_NAME $DOWNLOAD_URL && \
-unzip -q $ZIP_NAME && \
-rm $ZIP_NAME
+wget -O server.zip $DOWNLOAD_URL -q --show-progress --progress=dot:giga
+unzip -q server.zip
+rm server.zip
 
 jarlist=(FTB*.jar)
 mv "${jarlist[0]}" ftbserver.jar
 
 if [ -f FTBInstall.sh ]; then
 	/bin/bash FTBInstall.sh
-fi
-
-if [ ! -z "${DYNMAP_URL}" ]; then
-	wget -O mods/dynmap.jar $DYNMAP_URL
 fi
 
 echo "eula=true" > eula.txt

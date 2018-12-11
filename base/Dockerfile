@@ -1,31 +1,20 @@
-FROM ubuntu:16.04
+FROM alpine:latest
 
-RUN apt-get -q update && \
-	apt-get -q install -y wget unzip openjdk-8-jre
+ARG MCMA_ETC_URL=http://mcmyadmin.com/Downloads/etc.zip
+ARG MCMA_DOWNLOAD_URL=http://mcmyadmin.com/Downloads/MCMA2_glibc26_2.zip
 
-RUN useradd minecraft -m -s /bin/bash
+ENV MCMA_PASSWORD=${MCMA_PASSWORD:-pass123}
 
-WORKDIR /usr/local
-RUN wget -nv http://mcmyadmin.com/Downloads/etc.zip && \
-	unzip etc.zip && \
-	rm etc.zip
+# Install dependencies
+RUN apk update \
+    && apk add --no-cache wget unzip openjdk8-jre bash
 
-COPY McMyAdmin.conf /home/minecraft/mcmyadmin/
-WORKDIR /home/minecraft/mcmyadmin
-RUN wget -nv http://mcmyadmin.com/Downloads/MCMA2_glibc26_2.zip && \
-	unzip MCMA2_glibc26_2.zip && \
-	rm MCMA2_glibc26_2.zip && \
-	mkdir Minecraft && \
-	./MCMA2_Linux_x86_64 -nonotice -updateonly
+# Configure
+RUN wget -nv $MCMA_ETC_URL -O /usr/local/etc.zip \
+	  && unzip /usr/local/etc.zip -d /usr/local \
+	  && rm /usr/local/etc.zip \
+    && mkdir -p /opt/minecraft
 
+WORKDIR /opt/minecraft
 
-RUN chown -R minecraft:minecraft /home/minecraft
-
-EXPORT 8123
-EXPOSE 8080
 EXPOSE 25565
-
-USER minecraft
-
-ENTRYPOINT ["/home/minecraft/mcmyadmin/MCMA2_Linux_x86_64"]
-CMD ["-setpass", "pass123"]

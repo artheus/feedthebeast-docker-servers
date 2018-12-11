@@ -1,48 +1,13 @@
-env:
-  matrix:
-    - MODPACK=skyfactory3
-    - MODPACK=beyond
-    - MODPACK=infinity
-    - MODPACK=direwolf20
-    - MODPACK=skyfactory2
-    - MODPACK=infinityskyblock
-    - MODPACK=infinitylite
-    - MODPACK=hermitpack
-    - MODPACK=magequest
-    - MODPACK=skyfactorychallanges
-    - MODPACK=crackpack
-    - MODPACK=unleashed
-    - MODPACK=ultimate
-    - MODPACK=trident
-    - MODPACK=lite3
-    - MODPACK=inventions
-    - MODPACK=departed
-    - MODPACK=techworld2
-    - MODPACK=magicworld2
-    - MODPACK=horizonsdaybreaker
-    - MODPACK=cloud9
-    - MODPACK=monster
-    - MODPACK=lite
-    - MODPACK=mindcrack
-    - MODPACK=horizons
-    - MODPACK=resurrection
-    - MODPACK=yogcraft
-    - MODPACK=lite2
-    - MODPACK=betaa
-    - MODPACK=magicworld
-    - MODPACK=retrosmp
-    - MODPACK=techworld
-    - MODPACK=unhinged
-    - MODPACK=17testpack
-    - MODPACK=slowstream
-install: npm install
+language: python
+python:
+  - "3.7"
+install:
+  - pip install -r requirements.txt
 script:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - node ./build build $MODPACK
+  - docker build ./base -t feedthebeast/base
+  - python build.py
 sudo: required
-language: node_js
-node_js:
-  - "8"
 services:
   - docker
 dist: trusty
