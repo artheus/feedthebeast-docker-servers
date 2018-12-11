@@ -5,7 +5,7 @@ install:
   - pip install -r requirements.txt
 script:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-  - docker build ./base -t feedthebeast/base
+  - docker build ./base -t feedthebeast/ftbbase
   - python build.py
 sudo: required
 services:
