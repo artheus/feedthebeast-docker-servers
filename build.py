@@ -21,7 +21,7 @@ class Modpack:
 
 
 def do_build(docker_tag, download_url):
-    command = 'docker build ./modserver -t "'+docker_tag+'" --build-arg DOWNLOAD_URL='+download_url
+    command = 'docker build ./modserver -q -t "'+docker_tag+'" --build-arg DOWNLOAD_URL='+download_url
     with open('/dev/stdout', 'w') as stdout:
         p = subprocess.Popen(command, shell=True, stdout=stdout)
         os.waitpid(p.pid, 0)
