@@ -1,12 +1,9 @@
-wget -O server.zip $DOWNLOAD_URL -q --show-progress --progress=dot:giga
-unzip -q server.zip
+wget -q -O server.zip $DOWNLOAD_URL
+unzip -qq server.zip
 rm server.zip
 
-jarlist=(FTB*.jar)
-mv "${jarlist[0]}" ftbserver.jar
-
 if [ -f FTBInstall.sh ]; then
-	/bin/bash FTBInstall.sh
+	/bin/bash FTBInstall.sh >/dev/null 2>&1
 fi
 
 echo "eula=true" > eula.txt
