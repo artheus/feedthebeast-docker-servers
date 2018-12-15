@@ -22,12 +22,12 @@ class Modpack:
 
 def do_build(docker_tag, download_url):
     command = 'docker build ./modserver -t "'+docker_tag+'" --build-arg DOWNLOAD_URL='+download_url
-    with open('/dev/stdout', 'w') as stdout:
-        p = subprocess.Popen(command, shell=True, stdout=stdout)
-        os.waitpid(p.pid, 0)
 
-        p = subprocess.Popen('docker push '+docker_tag, shell=True, stdout=stdout)
-        os.waitpid(p.pid, 0)
+    buildProcess = subprocess.Popen(command, shell=True)
+    os.waitpid(buildProcess.pid, 0)
+
+    pushProcess = subprocess.Popen('docker push '+docker_tag, shell=True)
+    os.waitpid(pushProcess.pid, 0)
 
 
 def docker_tag(name, pack_version="", mc_version="", latest=False):
@@ -57,8 +57,10 @@ def build_modpack(modpack):
             builds.append((docker_tag(modpack.dir.lower(), latest=True), download_url))
 
     for bt in builds:
+
         r = requests.get("https://index.docker.io/v1/repositories/"+bt[0][0]+"/tags/"+bt[0][1])
         if r.status_code == 404:
+            print("Building feedthebeast/" + bt[0][0] + ":" + bt[0][1])
             do_build(':'.join(bt[0]), bt[1])
 
 
