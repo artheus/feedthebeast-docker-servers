@@ -29,7 +29,7 @@ the container. On my personal server I've done this:
 ```bash
 mkdir -p /var/lib/minecraft/{world,backups}
 docker run \
-  -v /var/lib/minecraft/world:/home/minecraft/mcmyadmin/Minecraft/world \
+  -v /var/lib/minecraft/world:/opt/minecraft/world \
   -v /var/lib/minecraft/backups:/home/minecraft/mcmyadmin/Backups \
   --name minecraft \
   feedthebeast/beyond
