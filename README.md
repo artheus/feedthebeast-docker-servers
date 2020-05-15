@@ -1,5 +1,11 @@
 # Dockerized FTB Minecraft servers [![Build Status](https://travis-ci.org/artheus/feedthebeast-docker-servers.svg?branch=master)](https://travis-ci.org/artheus/feedthebeast-docker-servers)
 
+## This repository is up for adoption!
+If you are willing to adopt this project, please fork this repository and do so.
+Please contact me, for adding you to the Docker Hub project.
+
+## Description
+
 So, you want to run your own FTB Minecraft Server? Use these Docker images to do so!
 
 To use this, you will need some knowledge on how to use Docker.
@@ -8,13 +14,7 @@ Please read about docker here: https://docs.docker.com/learn/
 Pull the docker images from
 https://hub.docker.com/u/feedthebeast/
 
-# Milestones
-- ~~Add McMyAdmin to increase control over the server~~
-- ~~Add an app for rendering world maps~~
-- ~~Include all servers from the FTB ModPack list~~
-- ~~Automatic builds of the docker images, pushing directly to Docker hub~~
-
-# Usage
+## Usage
 
 TL;DR; `docker run -it feedthebeast/direwolf20`
 
