@@ -6,19 +6,19 @@ import subprocess
 
 
 DYNMAP_URLS = {
-    "1.4.7": "https://minecraft.curseforge.com/projects/dynmapforge/files/2216525/download",
-    "1.5.2": "https://minecraft.curseforge.com/projects/dynmapforge/files/2216526/download",
-    "1.6.4": "https://minecraft.curseforge.com/projects/dynmapforge/files/2307077/download",
-    "1.7.10": "https://minecraft.curseforge.com/projects/dynmapforge/files/2380586/download",
-    "1.8.0": "https://minecraft.curseforge.com/projects/dynmapforge/files/2380592/download",
-    "1.8.9": "https://minecraft.curseforge.com/projects/dynmapforge/files/2380593/download",
-    "1.9": "https://minecraft.curseforge.com/projects/dynmapforge/files/2380594/download",
-    "1.9.4": "https://minecraft.curseforge.com/projects/dynmapforge/files/2380600/download",
-    "1.10.2": "https://minecraft.curseforge.com/projects/dynmapforge/files/2380601/download",
-    "1.11": "https://minecraft.curseforge.com/projects/dynmapforge/files/2380602/download",
-    "1.11.2": "https://minecraft.curseforge.com/projects/dynmapforge/files/2380603/download",
-    "1.12": "https://minecraft.curseforge.com/projects/dynmapforge/files/2436596/download",
-    "1.12.2": "https://minecraft.curseforge.com/projects/dynmapforge/files/2645936/download"
+    "1.4.7":    "https://edge.forgecdn.net/files/2216/525/Dynmap-2.0.0-forge-6.6.2.jar",
+    "1.5.2":    "https://edge.forgecdn.net/files/2216/526/Dynmap-2.0.0-forge-7.8.1.jar",
+    "1.6.4":    "https://edge.forgecdn.net/files/2307/077/Dynmap-2.3-forge-1.6.4.jar",
+    "1.7.10":   "https://edge.forgecdn.net/files/2307/078/Dynmap-2.3-forge-1.7.10.jar",
+    "1.8.0":    "https://edge.forgecdn.net/files/2380/592/Dynmap-2.4-forge-1.8.0.jar",
+    "1.8.9":    "https://edge.forgecdn.net/files/2380/593/Dynmap-2.4-forge-1.8.9.jar",
+    "1.9":      "https://edge.forgecdn.net/files/2380/594/Dynmap-2.4-forge-1.9.jar",
+    "1.9.4":    "https://edge.forgecdn.net/files/2380/600/Dynmap-2.4-forge-1.9.4.jar",
+    "1.10.2":   "https://edge.forgecdn.net/files/2380/601/Dynmap-2.4-forge-1.10.2.jar",
+    "1.11":     "https://edge.forgecdn.net/files/2380/602/Dynmap-2.4-forge-1.11.jar",
+    "1.11.2":   "https://edge.forgecdn.net/files/2380/603/Dynmap-2.4-forge-1.11.2.jar",
+    "1.12":     "https://edge.forgecdn.net/files/2436/596/Dynmap-2.6-beta-1-forge-1.12.jar",
+    "1.12.2":   "https://edge.forgecdn.net/files/2645/936/Dynmap-3.0-beta-3-forge-1.12.2.jar"
 }
 
 
@@ -79,7 +79,7 @@ def build_modpack(modpack):
     builds = {}
 
     for v in versions:
-        download_url = "http://ftb.cursecdn.com/FTB2/modpacks/"+modpack.dir+"/"+v.replace('.','_')+"/"+modpack.server_pack
+        download_url = "http://ftb.forgecdn.net/FTB2/modpacks/"+modpack.dir+"/"+v.replace('.','_')+"/"+modpack.server_pack
         dynmap_url = DYNMAP_URLS[modpack.mc_version]
 
         if v == modpack.version:
@@ -110,7 +110,7 @@ def main():
     parser.add_argument('-p', '--prefix', dest='prefix', action='store', default='', help='Override docker prefix from empty (docker hub)')
     args = parser.parse_args()
 
-    r = requests.get("https://ftb.cursecdn.com/FTB2/static/modpacks.xml")
+    r = requests.get("https://ftb.forgecdn.net/FTB2/static/modpacks.xml")
     tree = bs4.BeautifulSoup(r.text, "html.parser")
 
     modpacks = {}
