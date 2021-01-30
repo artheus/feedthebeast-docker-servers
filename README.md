@@ -1,3 +1,5 @@
+# NOTE: No longer working on this... I am currently experimenting on github.com/curseforge-docker/modpack-servers . I would really love for some help, suggestions and pull-requests to that project instead.
+
 # Dockerized FTB Minecraft servers [![Build Status](https://travis-ci.org/artheus/feedthebeast-docker-servers.svg?branch=master)](https://travis-ci.org/artheus/feedthebeast-docker-servers)
 
 ## This repository is up for adoption!
